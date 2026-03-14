@@ -1,0 +1,12 @@
+apply plugin: "de.undercouch.download"
+
+def assetDir = file(project.ext.ASSET_DIR)
+def poseLandmarkerModel = new File(assetDir, "pose_landmarker_lite.task")
+
+task downloadPoseLandmarkerModel(type: Download) {
+    src "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task"
+    dest poseLandmarkerModel
+    overwrite false
+}
+
+preBuild.dependsOn downloadPoseLandmarkerModel

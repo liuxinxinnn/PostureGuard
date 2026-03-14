@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#F4C95D</color>
+    <color name="accent_dark">#CDA64B</color>
+    <color name="bg_end">#1D3A4A</color>
+    <color name="bg_start">#0F1B2D</color>
+    <color name="danger">#E76F51</color>
+    <color name="outline">#2B4B63</color>
+    <color name="surface">#15283B</color>
+    <color name="surface_alt">#1B3148</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B8C4CC</color>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_radius">18dp</dimen>
+    <dimen name="screen_padding">24dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="timer_ring_size">240dp</dimen>
+    <string name="alert_head">请抬头</string>
+    <string name="alert_hunch">请挺胸</string>
+    <string name="alert_water">喝点水吧</string>
+    <string name="app_name">体态守护</string>
+    <string name="check_head">低头过久</string>
+    <string name="check_hunch">弯腰驼背</string>
+    <string name="check_water">久未喝水</string>
+    <string name="focus_desc">开启后仅显示已进行时间</string>
+    <string name="home_subtitle">实时体态识别 + 喝水提醒</string>
+    <string name="home_title">体态监测</string>
+    <string name="permission_camera_denied">未授予相机权限，无法开始监测</string>
+    <string name="permission_camera_rationale">需要相机权限用于体态识别</string>
+    <string name="section_checks">监测项</string>
+    <string name="section_focus">沉浸番茄钟</string>
+    <string name="start_button">开始监测</string>
+    <string name="test_button">快速测试</string>
+    <string name="timer_elapsed">已进行</string>
+    <string name="timer_hint">长按退出</string>
+    <string name="timer_title">专注模式</string>
+    <style name="ButtonPrimary">
+        <item name="android:background">@drawable/pill_bg</item>
+        <item name="android:textColor">@color/bg_start</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    <style name="PillText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextBody">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="TextSubtitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="TextTitle">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Theme.PostureGuard" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/bg_start</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/bg_end</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <style name="TimerLabel">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+    <style name="TimerText">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+</resources>
