@@ -14,9 +14,16 @@
     <string name="timer_title">专注模式</string>
     <string name="timer_elapsed">已进行</string>
     <string name="timer_hint">长按退出</string>
-    <string name="alert_hunch">请挺胸</string>
-    <string name="alert_head">请抬头</string>
-    <string name="alert_water">喝点水吧</string>
+    <string name="alert_hunch">弯腰驼背</string>
+    <string name="alert_head">头太低了</string>
+    <string name="alert_water">该喝水了</string>
+
     <string name="permission_camera_denied">未授予相机权限，无法开始监测</string>
     <string name="permission_camera_rationale">需要相机权限用于体态识别</string>
+
+    <string name="setup_title">请将身体放在框内</string>
+    <string name="setup_status_waiting">识别中… 请调整位置</string>
+    <string name="setup_status_ok">已就位，可以开始专注</string>
+    <string name="setup_confirm">确定开始专注</string>
 </resources>
+

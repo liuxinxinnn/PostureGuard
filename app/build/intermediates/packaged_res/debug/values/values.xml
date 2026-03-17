@@ -17,9 +17,9 @@
     <dimen name="spacing_md">16dp</dimen>
     <dimen name="spacing_sm">8dp</dimen>
     <dimen name="timer_ring_size">240dp</dimen>
-    <string name="alert_head">请抬头</string>
-    <string name="alert_hunch">请挺胸</string>
-    <string name="alert_water">喝点水吧</string>
+    <string name="alert_head">头太低了</string>
+    <string name="alert_hunch">弯腰驼背</string>
+    <string name="alert_water">该喝水了</string>
     <string name="app_name">体态守护</string>
     <string name="check_head">低头过久</string>
     <string name="check_hunch">弯腰驼背</string>
@@ -31,6 +31,10 @@
     <string name="permission_camera_rationale">需要相机权限用于体态识别</string>
     <string name="section_checks">监测项</string>
     <string name="section_focus">沉浸番茄钟</string>
+    <string name="setup_confirm">确定开始专注</string>
+    <string name="setup_status_ok">已就位，可以开始专注</string>
+    <string name="setup_status_waiting">识别中… 请调整位置</string>
+    <string name="setup_title">请将身体放在框内</string>
     <string name="start_button">开始监测</string>
     <string name="test_button">快速测试</string>
     <string name="timer_elapsed">已进行</string>

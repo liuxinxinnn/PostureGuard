@@ -33,7 +33,8 @@ class PoseLandmarkerHelper(
     }
 
     fun detectLiveStream(imageProxy: ImageProxy, isFrontCamera: Boolean) {
-        if (poseLandmarker == null) {
+        val landmarker = poseLandmarker
+        if (landmarker == null) {
             imageProxy.close()
             return
         }
@@ -42,16 +43,24 @@ class PoseLandmarkerHelper(
         val width = imageProxy.width
         val height = imageProxy.height
         val frameTime = SystemClock.uptimeMillis()
-        val bitmapBuffer = Bitmap.createBitmap(
-            width,
+
+        // For RGBA_8888 output, rowStride may include padding. Copy into a padded bitmap then crop.
+        val plane = imageProxy.planes[0]
+        val buffer = plane.buffer
+        val rowStride = plane.rowStride
+        val pixelStride = plane.pixelStride
+        val rowPadding = (rowStride - pixelStride * width).coerceAtLeast(0)
+
+        val paddedBitmap = Bitmap.createBitmap(
+            width + rowPadding / pixelStride,
             height,
             Bitmap.Config.ARGB_8888
         )
-        imageProxy.planes[0].buffer.let { buffer ->
-            buffer.rewind()
-            bitmapBuffer.copyPixelsFromBuffer(buffer)
-        }
+        buffer.rewind()
+        paddedBitmap.copyPixelsFromBuffer(buffer)
         imageProxy.close()
+
+        val bitmapBuffer = Bitmap.createBitmap(paddedBitmap, 0, 0, width, height)
 
         val matrix = Matrix().apply {
             postRotate(rotation.toFloat())
@@ -69,7 +78,7 @@ class PoseLandmarkerHelper(
             true
         )
         val mpImage = BitmapImageBuilder(rotatedBitmap).build()
-        poseLandmarker?.detectAsync(mpImage, frameTime)
+        landmarker.detectAsync(mpImage, frameTime)
     }
 
     private fun setupPoseLandmarker(context: Context) {
@@ -88,10 +97,16 @@ class PoseLandmarkerHelper(
             .setErrorListener { error -> listener.onError(error.message ?: "MediaPipe error") }
             .build()
 
-        poseLandmarker = PoseLandmarker.createFromOptions(context, options)
+        poseLandmarker = try {
+            PoseLandmarker.createFromOptions(context, options)
+        } catch (e: Exception) {
+            listener.onError(e.message ?: "MediaPipe init failed")
+            null
+        }
     }
 
     companion object {
         const val MODEL_PATH = "pose_landmarker_lite.task"
     }
 }
+

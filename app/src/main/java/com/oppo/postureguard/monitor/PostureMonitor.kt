@@ -4,6 +4,8 @@ import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarkerResult
+import kotlin.math.abs
+import kotlin.math.max
 
 class PostureMonitor(
     private val config: Config,
@@ -30,10 +32,20 @@ class PostureMonitor(
     private val hydrationHandler = Handler(Looper.getMainLooper())
     private var lastAlertTime = 0L
 
-    private val postureIntervalMs = if (config.quickTest) 4000L else 15000L
-    private val hydrationIntervalMs = if (config.quickTest) 15000L else 45 * 60 * 1000L
-    private val headDownThreshold = if (config.quickTest) 0.07f else 0.10f
-    private val hunchDepthThreshold = if (config.quickTest) 0.06f else 0.10f
+    private val postureIntervalMs = if (config.quickTest) 2500L else 12_000L
+    private val hydrationIntervalMs = if (config.quickTest) 10_000L else 45 * 60 * 1000L
+
+    // Head-down detection uses a per-user baseline captured at focus start.
+    // We compute headRatio = (shoulderY - noseY) / shoulderWidth.
+    // Smaller ratio => nose closer to shoulders => more likely "head down".
+    private var headBaseline = 0.30f
+    private var headEma = 0.30f
+    private var headBelowSince = 0L
+    private var headWarmupUntil = 0L
+
+    private val headFactor = if (config.quickTest) 0.70f else 0.65f
+    private val headHoldMs = if (config.quickTest) 700L else 1200L
+    private val minShoulderWidth = 0.06f
 
     private val hydrationRunnable = object : Runnable {
         override fun run() {
@@ -55,6 +67,14 @@ class PostureMonitor(
         hydrationHandler.removeCallbacks(hydrationRunnable)
     }
 
+    fun setHeadBaseline(ratio: Float) {
+        val clamped = ratio.coerceIn(0.10f, 0.80f)
+        headBaseline = clamped
+        headEma = clamped
+        headBelowSince = 0L
+        headWarmupUntil = SystemClock.elapsedRealtime() + 1000L
+    }
+
     fun onPose(result: PoseLandmarkerResult) {
         if (!config.hunchEnabled && !config.headDownEnabled) return
 
@@ -71,20 +91,44 @@ class PostureMonitor(
         val hipY = (leftHip.y() + rightHip.y()) / 2f
         val noseY = nose.y()
 
-        val shoulderZ = (leftShoulder.z() + rightShoulder.z()) / 2f
-        val hipZ = (leftHip.z() + rightHip.z()) / 2f
-
-        val headDown = (noseY - shoulderY) > headDownThreshold
-        val hunch = (hipZ - shoulderZ) > hunchDepthThreshold && (hipY - shoulderY) > 0.12f
+        val torsoLen = hipY - shoulderY
+        val shoulderWidth = abs(leftShoulder.x() - rightShoulder.x())
+        val scale = max(torsoLen, shoulderWidth)
+        if (scale <= 0f) return
+        if (shoulderWidth < minShoulderWidth) return
 
         val now = SystemClock.elapsedRealtime()
+
+        // Smaller clearance => head closer to shoulders => likely head down.
+        val headClearance = shoulderY - noseY
+        val headRatio = (headClearance / shoulderWidth).coerceIn(-2f, 2f)
+
+        // Smooth ratio to avoid jitter.
+        headEma = headEma * 0.85f + headRatio * 0.15f
+        val headThreshold = (headBaseline * headFactor).coerceIn(0.08f, 0.55f)
+        val headDown = headEma < headThreshold
+
+        // Very rough hunch heuristic for demo: torso appears "compressed".
+        val hunch = torsoLen in 0f..(if (config.quickTest) 0.18f else 0.20f)
+
         if (now - lastAlertTime < postureIntervalMs) return
 
-        if (config.headDownEnabled && headDown) {
-            lastAlertTime = now
-            notify(AlertType.HEAD_DOWN)
-            return
+        if (config.headDownEnabled) {
+            if (now < headWarmupUntil) {
+                headBelowSince = 0L
+            } else if (headDown) {
+                if (headBelowSince == 0L) headBelowSince = now
+                if (now - headBelowSince >= headHoldMs) {
+                    lastAlertTime = now
+                    headBelowSince = 0L
+                    notify(AlertType.HEAD_DOWN)
+                    return
+                }
+            } else {
+                headBelowSince = 0L
+            }
         }
+
         if (config.hunchEnabled && hunch) {
             lastAlertTime = now
             notify(AlertType.HUNCH)
@@ -103,3 +147,4 @@ class PostureMonitor(
         private const val RIGHT_HIP = 24
     }
 }
+

@@ -3168,6 +3168,7 @@ int id actions 0x7f080044
 int id activity_chooser_view_content 0x7f080045
 int id add 0x7f080046
 int id alertTitle 0x7f080047
+int id alert_text 0x7f080204
 int id aligned 0x7f080048
 int id all 0x7f080049
 int id allStates 0x7f08004a
@@ -3236,6 +3237,7 @@ int id custom 0x7f080088
 int id customPanel 0x7f080089
 int id cut 0x7f08008a
 int id date_picker_actions 0x7f08008b
+int id debug_text 0x7f080203
 int id decelerate 0x7f08008c
 int id decelerateAndComplete 0x7f08008d
 int id decor_content_parent 0x7f08008e
@@ -3294,6 +3296,7 @@ int id fitStart 0x7f0800c2
 int id fitToContents 0x7f0800c3
 int id fitXY 0x7f0800c4
 int id fixed 0x7f0800c5
+int id flash_overlay 0x7f080205
 int id flip 0x7f0800c6
 int id floating 0x7f0800c7
 int id focus_section 0x7f0800c8
@@ -3454,6 +3457,7 @@ int id peekHeight 0x7f080162
 int id percent 0x7f080163
 int id performance 0x7f080164
 int id pin 0x7f080165
+int id pose_overlay 0x7f080206
 int id position 0x7f080166
 int id postLayout 0x7f080167
 int id posture_home_root 0x7f080168
@@ -3497,6 +3501,9 @@ int id section_checks 0x7f08018d
 int id select_dialog_listview 0x7f08018e
 int id selected 0x7f08018f
 int id selection_type 0x7f080190
+int id setup_panel 0x7f080207
+int id setup_status 0x7f080208
+int id setup_title 0x7f080209
 int id sharedValueSet 0x7f080191
 int id sharedValueUnset 0x7f080192
 int id shortcut 0x7f080193
@@ -3984,6 +3991,10 @@ int string searchview_clear_text_content_description 0x7f0e00ad
 int string searchview_navigation_content_description 0x7f0e00ae
 int string section_checks 0x7f0e00af
 int string section_focus 0x7f0e00b0
+int string setup_confirm 0x7f0e00b9
+int string setup_status_ok 0x7f0e00ba
+int string setup_status_waiting 0x7f0e00bb
+int string setup_title 0x7f0e00bc
 int string side_sheet_accessibility_pane_title 0x7f0e00b1
 int string side_sheet_behavior 0x7f0e00b2
 int string start_button 0x7f0e00b3

@@ -1,7 +1,11 @@
 [
     {
-        "merged": "com.oppo.postureguard.app-mergeDebugResources-37:/layout/activity_main.xml",
-        "source": "com.oppo.postureguard.app-main-40:/layout/activity_main.xml"
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-mergeDebugResources-37:\\layout\\activity_immersive.xml",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\layout\\activity_immersive.xml"
+    },
+    {
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-mergeDebugResources-37:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\layout\\activity_main.xml"
     },
     {
         "merged": "com.oppo.postureguard.app-mergeDebugResources-37:/layout/activity_immersive.xml",

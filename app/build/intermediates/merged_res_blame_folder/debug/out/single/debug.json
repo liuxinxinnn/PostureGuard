@@ -1,26 +1,30 @@
 [
     {
-        "merged": "com.oppo.postureguard.app-merged_res-38:/drawable_pill_bg.xml.flat",
-        "source": "com.oppo.postureguard.app-main-40:/drawable/pill_bg.xml"
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-merged_res-38:\\drawable_card_bg.xml.flat",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\drawable\\card_bg.xml"
     },
     {
-        "merged": "com.oppo.postureguard.app-merged_res-38:/layout_activity_main.xml.flat",
-        "source": "com.oppo.postureguard.app-main-40:/layout/activity_main.xml"
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-merged_res-38:\\drawable_pill_bg.xml.flat",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\drawable\\pill_bg.xml"
     },
     {
-        "merged": "com.oppo.postureguard.app-merged_res-38:/drawable_bg_gradient.xml.flat",
-        "source": "com.oppo.postureguard.app-main-40:/drawable/bg_gradient.xml"
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-merged_res-38:\\drawable_bg_gradient.xml.flat",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\drawable\\bg_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-merged_res-38:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-merged_res-38:\\drawable_timer_ring.xml.flat",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\drawable\\timer_ring.xml"
+    },
+    {
+        "merged": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-merged_res-38:\\layout_activity_immersive.xml.flat",
+        "source": "C:\\Users\\18789\\.gradle\\daemon\\8.7\\com.oppo.postureguard.app-main-40:\\layout\\activity_immersive.xml"
     },
     {
         "merged": "com.oppo.postureguard.app-merged_res-38:/layout_activity_immersive.xml.flat",
         "source": "com.oppo.postureguard.app-main-40:/layout/activity_immersive.xml"
-    },
-    {
-        "merged": "com.oppo.postureguard.app-merged_res-38:/drawable_timer_ring.xml.flat",
-        "source": "com.oppo.postureguard.app-main-40:/drawable/timer_ring.xml"
-    },
-    {
-        "merged": "com.oppo.postureguard.app-merged_res-38:/drawable_card_bg.xml.flat",
-        "source": "com.oppo.postureguard.app-main-40:/drawable/card_bg.xml"
     }
 ]

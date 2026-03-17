@@ -3169,6 +3169,7 @@ id actions
 id activity_chooser_view_content
 id add
 id alertTitle
+id alert_text
 id aligned
 id all
 id allStates
@@ -3237,6 +3238,7 @@ id custom
 id customPanel
 id cut
 id date_picker_actions
+id debug_text
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -3295,6 +3297,7 @@ id fitStart
 id fitToContents
 id fitXY
 id fixed
+id flash_overlay
 id flip
 id floating
 id focus_section
@@ -3455,6 +3458,7 @@ id peekHeight
 id percent
 id performance
 id pin
+id pose_overlay
 id position
 id postLayout
 id posture_home_root
@@ -3498,6 +3502,9 @@ id section_checks
 id select_dialog_listview
 id selected
 id selection_type
+id setup_panel
+id setup_status
+id setup_title
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3985,6 +3992,10 @@ string searchview_clear_text_content_description
 string searchview_navigation_content_description
 string section_checks
 string section_focus
+string setup_confirm
+string setup_status_ok
+string setup_status_waiting
+string setup_title
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string start_button

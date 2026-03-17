@@ -4,7 +4,9 @@ package com.oppo.postureguard.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.oppo.postureguard.R;
+import com.oppo.postureguard.ui.PoseOverlayView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,10 +25,34 @@ public final class ActivityImmersiveBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView alertText;
+
+  @NonNull
+  public final Button confirmButton;
+
+  @NonNull
+  public final TextView debugText;
+
+  @NonNull
+  public final View flashOverlay;
+
+  @NonNull
   public final ConstraintLayout immersiveRoot;
 
   @NonNull
+  public final PoseOverlayView poseOverlay;
+
+  @NonNull
   public final PreviewView previewView;
+
+  @NonNull
+  public final LinearLayout setupPanel;
+
+  @NonNull
+  public final TextView setupStatus;
+
+  @NonNull
+  public final TextView setupTitle;
 
   @NonNull
   public final FrameLayout timerRing;
@@ -33,12 +60,23 @@ public final class ActivityImmersiveBinding implements ViewBinding {
   @NonNull
   public final TextView timerText;
 
-  private ActivityImmersiveBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout immersiveRoot, @NonNull PreviewView previewView,
-      @NonNull FrameLayout timerRing, @NonNull TextView timerText) {
+  private ActivityImmersiveBinding(@NonNull ConstraintLayout rootView, @NonNull TextView alertText,
+      @NonNull Button confirmButton, @NonNull TextView debugText, @NonNull View flashOverlay,
+      @NonNull ConstraintLayout immersiveRoot, @NonNull PoseOverlayView poseOverlay,
+      @NonNull PreviewView previewView, @NonNull LinearLayout setupPanel,
+      @NonNull TextView setupStatus, @NonNull TextView setupTitle, @NonNull FrameLayout timerRing,
+      @NonNull TextView timerText) {
     this.rootView = rootView;
+    this.alertText = alertText;
+    this.confirmButton = confirmButton;
+    this.debugText = debugText;
+    this.flashOverlay = flashOverlay;
     this.immersiveRoot = immersiveRoot;
+    this.poseOverlay = poseOverlay;
     this.previewView = previewView;
+    this.setupPanel = setupPanel;
+    this.setupStatus = setupStatus;
+    this.setupTitle = setupTitle;
     this.timerRing = timerRing;
     this.timerText = timerText;
   }
@@ -70,11 +108,59 @@ public final class ActivityImmersiveBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.alert_text;
+      TextView alertText = ViewBindings.findChildViewById(rootView, id);
+      if (alertText == null) {
+        break missingId;
+      }
+
+      id = R.id.confirm_button;
+      Button confirmButton = ViewBindings.findChildViewById(rootView, id);
+      if (confirmButton == null) {
+        break missingId;
+      }
+
+      id = R.id.debug_text;
+      TextView debugText = ViewBindings.findChildViewById(rootView, id);
+      if (debugText == null) {
+        break missingId;
+      }
+
+      id = R.id.flash_overlay;
+      View flashOverlay = ViewBindings.findChildViewById(rootView, id);
+      if (flashOverlay == null) {
+        break missingId;
+      }
+
       ConstraintLayout immersiveRoot = (ConstraintLayout) rootView;
+
+      id = R.id.pose_overlay;
+      PoseOverlayView poseOverlay = ViewBindings.findChildViewById(rootView, id);
+      if (poseOverlay == null) {
+        break missingId;
+      }
 
       id = R.id.preview_view;
       PreviewView previewView = ViewBindings.findChildViewById(rootView, id);
       if (previewView == null) {
+        break missingId;
+      }
+
+      id = R.id.setup_panel;
+      LinearLayout setupPanel = ViewBindings.findChildViewById(rootView, id);
+      if (setupPanel == null) {
+        break missingId;
+      }
+
+      id = R.id.setup_status;
+      TextView setupStatus = ViewBindings.findChildViewById(rootView, id);
+      if (setupStatus == null) {
+        break missingId;
+      }
+
+      id = R.id.setup_title;
+      TextView setupTitle = ViewBindings.findChildViewById(rootView, id);
+      if (setupTitle == null) {
         break missingId;
       }
 
@@ -90,8 +176,9 @@ public final class ActivityImmersiveBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityImmersiveBinding((ConstraintLayout) rootView, immersiveRoot, previewView,
-          timerRing, timerText);
+      return new ActivityImmersiveBinding((ConstraintLayout) rootView, alertText, confirmButton,
+          debugText, flashOverlay, immersiveRoot, poseOverlay, previewView, setupPanel, setupStatus,
+          setupTitle, timerRing, timerText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
