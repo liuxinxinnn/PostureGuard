@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_start">#0F1B2D</color>
+    <color name="bg_end">#1D3A4A</color>
+    <color name="accent">#F4C95D</color>
+    <color name="accent_dark">#CDA64B</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B8C4CC</color>
+    <color name="surface">#15283B</color>
+    <color name="surface_alt">#1B3148</color>
+    <color name="outline">#2B4B63</color>
+    <color name="danger">#E76F51</color>
+    <color name="holo_cyan">#3DE0E6</color>
+    <color name="ok_green">#2A9D8F</color>
+</resources>

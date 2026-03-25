@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.oppo.postureguard.app-mergeDebugResources-38:/layout/activity_immersive.xml",
+        "source": "com.oppo.postureguard.app-main-41:/layout/activity_immersive.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-mergeDebugResources-38:/layout/activity_main.xml",
+        "source": "com.oppo.postureguard.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-mergeDebugResources-38:/layout/activity_coach_training_v2.xml",
+        "source": "com.oppo.postureguard.app-main-41:/layout/activity_coach_training_v2.xml"
+    }
+]

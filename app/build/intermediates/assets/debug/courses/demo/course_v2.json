@@ -1,0 +1,11 @@
+{
+  "id": "demo",
+  "name": "影子跟练 v2（演示：余弦相似度 + DTW + WebMessagePort）",
+  "body_mode": "UPPER_BODY",
+  "fps": 20,
+  "mirror": true,
+  "dtw": { "window_seconds": 6, "search_seconds": 8, "update_hz": 2 },
+  "thresholds": { "pass_score": 75, "hold_ms": 600 },
+  "coach_features": "",
+  "coach_landmarks": ""
+}

@@ -1,0 +1,23 @@
+apply plugin: "de.undercouch.download"
+
+def assetDir = file(project.ext.ASSET_DIR)
+def poseLandmarkerModel = new File(assetDir, "pose_landmarker_lite.task")
+
+task downloadPoseLandmarkerModel(type: Download) {
+    src "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task"
+    dest poseLandmarkerModel
+    overwrite false
+}
+
+preBuild.dependsOn downloadPoseLandmarkerModel
+
+// Selfie segmentation (for silhouette overlay)
+def selfieSegmenterModel = new File(assetDir, "selfie_segmenter.tflite")
+
+task downloadSelfieSegmenterModel(type: Download) {
+    src "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/1/selfie_segmenter.tflite"
+    dest selfieSegmenterModel
+    overwrite false
+}
+
+preBuild.dependsOn downloadSelfieSegmenterModel

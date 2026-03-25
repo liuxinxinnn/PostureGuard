@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PostureGuard Coach3D</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: transparent; overflow: hidden; }
+    #hud {
+      position: absolute; left: 12px; top: 12px;
+      color: rgba(255,255,255,0.9);
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      background: rgba(21,40,59,0.75);
+      border: 1px solid rgba(61,224,230,0.25);
+      padding: 10px 12px; border-radius: 12px;
+      z-index: 100;
+    }
+    canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+  </style>
+
+  <!-- 1. 必须加载这个，否则手机浏览器不认下面的本地模块 -->
+  <script src="./es-module-shims.js"></script>
+
+  <!-- 2. 告诉浏览器去哪里找 Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./three.module.js",
+        "@pixiv/three-vrm": "./three-vrm.module.js"
+      }
+    }
+  </script>
+
+  <!-- 3. 加载本地 Kalidokit 库 -->
+  <script src="./kalidokit.umd.js"></script>
+
+  <script>
+    // 4. 🌟 强制粘合补丁：确保 bundle.js 能找到库
+    window.onload = function() {
+        const k = window.KalidoKit || window.kalidokit || window.Kalidokit;
+        if (k) {
+            window.kalidokit = k;
+            window.KalidoKit = k;
+            console.log("3D 算法库已就绪");
+        }
+    };
+  </script>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<canvas id="overlay"></canvas>
+
+<div id="hud">
+  <div><b>影子跟练 v2</b></div>
+  <div id="status">加载本地 3D 资源中...</div>
+  <div id="perf"></div>
+</div>
+
+<!-- 5. 必须声明为 type="module"，且放在最后加载 -->
+<script type="module" src="bundle.js"></script>
+</body>
+</html>

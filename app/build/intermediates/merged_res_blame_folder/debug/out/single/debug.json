@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/layout_activity_main.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/drawable_timer_ring.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/drawable/timer_ring.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/drawable_bg_gradient.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/drawable/bg_gradient.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/layout_activity_coach_training_v2.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/layout/activity_coach_training_v2.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/layout_activity_immersive.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/layout/activity_immersive.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/drawable_pill_bg.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/drawable/pill_bg.xml"
+    },
+    {
+        "merged": "com.oppo.postureguard.app-merged_res-39:/drawable_card_bg.xml.flat",
+        "source": "com.oppo.postureguard.app-main-41:/drawable/card_bg.xml"
+    }
+]

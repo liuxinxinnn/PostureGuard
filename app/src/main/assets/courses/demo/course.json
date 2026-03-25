@@ -1,0 +1,13 @@
+﻿{
+  "id": "demo",
+  "name": "对齐测试课程",
+  "body_mode": "UPPER_BODY",
+  "video": "",
+  "frame": { "left": 0.18, "top": 0.12, "right": 0.82, "bottom": 0.92 },
+  "keyframes": [
+    {
+      "t_ms": 2500,
+      "threshold": { "iou": 0.0, "err": 0.08, "hold_ms": 700 }
+    }
+  ]
+}
